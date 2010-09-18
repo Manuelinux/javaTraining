@@ -3,7 +3,7 @@
  * It creates a new Bank, sets the Customer (with an initial balance),
  * and performs a series of transactions with the Account object.
  */
-
+package banking;
 import banking.*;
 
 public class TestBanking {
