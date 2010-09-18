@@ -1,0 +1,214 @@
+<HTML>
+
+<HEAD>
+   <TITLE>SL275: Module2: Exercise #2: Explore Encapsulation</TITLE>
+</HEAD>
+
+<BODY  BGCOLOR=white>
+
+
+<CENTER>
+<H2>SL275: Module2: Object-Oriented Programming</H2>
+<H3>Exercise #2: Explore Encapsulation</H3>
+<H3>(Level 2)</H3>
+</CENTER>
+
+
+<H3>Objective</H3>
+
+<P>
+In this exercise you will explore the purpose of proper <I>object encapsulation</I>.
+You will create a class in three steps demonstrating the use of information hiding.
+</P>
+
+
+<H3>Directions</H3>
+
+<H4>Version 1: No Information Hiding</H4>
+
+<CENTER><IMG SRC="UML1.gif" ALT="UML Diagram of Version #1 of the Vehicle Class"></CENTER>
+
+<P>
+In this version of the <TT>Vehicle</TT> class, you will leave the attributes
+public so that the test program <TT>TestVehicle1</TT> will have direct access
+to them.
+
+<OL><TT></TT>
+
+  <LI>Change your working directory to <TT>mod02d1/exercise2/version1</TT>.
+      <P>
+
+  <LI>Create a class <TT>Vehicle</TT> that implements the above UML diagram.
+      <P>
+      <OL>
+        <LI>Include two public attributes: <TT>load</TT> "the current weight
+	of the vehicle's cargo" and <TT>maxLoad</TT> "the vehicle's maximum
+	cargo weight limit".
+        <LI>Include one public constructor to set the <TT>maxLoad</TT> attribute.
+        <LI>Include two public access methods: <TT>getLoad</TT> to retrieve the
+	<TT>load</TT> attribute and <TT>getMaxLoad</TT> to retrieve the
+	<TT>maxLoad</TT> attribute.
+      </OL>
+      <P>
+      Note that all of the data are assumed to be in kilograms.
+      <P>
+
+  <LI>Read the <TT>TestVehicle.java</TT> code.  Notice that the program
+      gets into trouble when the last box is added to the vehicle's load
+      because the code does not check if adding this box will exceed the
+      <TT>maxLoad</TT>.
+      <P>
+
+  <LI>Compile the <TT>Vehicle</TT> and <TT>TestVehicle</TT> classes.
+      <P>
+
+  <LI>Run the <TT>TestVehicle</TT> class.  The output generated should be:
+<PRE>
+Creating a vehicle with a 10,000kg maximum load.
+Add box #1 (500kg)
+Add box #2 (250kg)
+Add box #3 (5000kg)
+Add box #4 (4000kg)
+Add box #5 (300kg)
+Vehicle load is 10050.0 kg
+</PRE>
+      <P>
+
+</OL>
+
+</P>
+
+<H4>Version 2: Basic Information Hiding</H4>
+
+<CENTER><IMG SRC="UML2.gif" ALT="UML Diagram of Version #2 of the Vehicle Class"></CENTER>
+
+<P>
+To solve the problem from the first version, you will hide the internal class
+data (<TT>load</TT> and <TT>maxLoad</TT>) and provide a method, <TT>addBox</TT>,
+to perform the proper checking that the vehicle is not being overloaded.
+
+<OL>
+
+  <LI>Change your working directory to <TT>mod02/exercise2/version2</TT>.
+      <P>
+
+  <LI>Create a class <TT>Vehicle</TT> that implements the above UML diagram.
+      <P>
+      You may wish to copy the <TT>Vehicle.java</TT> file you created in version #1.
+      <P>
+      <OL>
+        <LI>Modify the  <TT>load</TT> and  <TT>maxLoad</TT> attributes to be private.
+	
+	<LI>Add the <TT>addBox</TT> method. This method takes a single argument,
+	    which is the weight of the box in kilograms. The method must verify
+	    that adding the box will not violate the maximum load. If a violation
+	    occurs the box is rejected by returning the value of <TT>false</TT>;
+	    otherwise the weight of the box is added to the vehicle load and the
+	    method returns <TT>true</TT>.
+	    <P>
+	    <FONT COLOR=blue>Hint:</FONT> you will need to use an "if" statement.
+	    Here is the basic form of the conditional form:
+<PRE>
+if ( &LT;<I>boolean_expression</I>&GT; ) {
+  &LT;<I>statement</I>&GT;*
+} else {
+  &LT;<I>statement</I>&GT;*
+}
+</PRE>
+	    <P>
+
+      </OL>
+      <P>
+      Note that all of the data are assumed to be in kilograms.
+      <P>
+
+  <LI>Read the <TT>TestVehicle.java</TT> code.  Notice that the code can not
+      modify the <TT>load</TT> attribute directly, but now must use the
+      <TT>addBox</TT> method.  This method returns a true or false value
+      which is printed to the screen.
+      <P>
+
+  <LI>Compile the <TT>Vehicle</TT> and <TT>TestVehicle</TT> classes.
+      <P>
+
+  <LI>Run the <TT>TestVehicle</TT> class.  The output generated should be:
+<PRE>
+Creating a vehicle with a 10,000kg maximum load.
+Add box #1 (500kg) : true
+Add box #2 (250kg) : true
+Add box #3 (5000kg) : true
+Add box #4 (4000kg) : true
+Add box #5 (300kg) : false
+Vehicle load is 9750.0 kg
+</PRE>
+      <P>
+
+</OL>
+</P>
+
+<H4>Version 3: Change Internal Representation of Weight to Newtons</H4>
+
+<CENTER><IMG SRC="UML3.gif" ALT="UML Diagram of Version #3 of the Vehicle Class"></CENTER>
+
+<P>
+Now suppose that you were going to write some calculations that determine
+the wear on the vehicle's engine and frame.  These calculations are easier
+if the weight of the load is measured in newtons.
+
+<OL>
+
+  <LI>Change your working directory to <TT>mod02/exercise2/version3</TT>.
+      <P>
+
+  <LI>Create a class <TT>Vehicle</TT> that implements the above UML diagram.
+      <P>
+      You may wish to copy the <TT>Vehicle.java</TT> file you created in version #2.
+      <P>
+      <OL>
+        <LI>Modify the constructor, <TT>getLoad</TT>, <TT>getMaxLoad</TT>,
+	    and <TT>addBox</TT> methods to use a conversion from kilograms
+	    (the parameter weight measurement) to newtons (the instance variable
+	    measurement). You might want to use the following private methods:
+<PRE>
+  private double kiloToNewts(double weight) {
+    return (weight * 9.8);
+  }
+  private double newtsToKilo(double weight) {
+    return (weight / 9.8);
+  }
+</PRE>
+      </OL>
+      <P>
+      Note that now the internal data of the vehicle objects is in newtons
+      and the external data (passed between methods) is still in kilograms.
+      <P>
+
+  <LI>Read the <TT>TestVehicle.java</TT> code.  Notice that it is identical
+      to the test code in version #2.
+      <P>
+
+  <LI>Compile the <TT>Vehicle</TT> and <TT>TestVehicle</TT> classes.
+      <P>
+
+  <LI>Run the <TT>TestVehicle</TT> class.  The output generated should be:
+<PRE>
+Creating a vehicle with a 10,000kg maximum load.
+Add box #1 (500kg) : true
+Add box #2 (250kg) : true
+Add box #3 (5000kg) : true
+Add box #4 (4000kg) : true
+Add box #5 (300kg) : false
+Vehicle load is 9750.0 kg
+</PRE>
+      <P>
+
+</OL>
+
+You should see no change in the output of the program.  This demonstrates that
+the (private) internal changes to the version #3 <TT>Vehicle</TT> class did not
+change the code of the client class <TT>TestVehicle</TT>.
+</P>
+
+</BODY>
+
+</HTML>
