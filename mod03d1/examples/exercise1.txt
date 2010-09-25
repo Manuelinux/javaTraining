@@ -1,0 +1,55 @@
+
+
+TestBook1.java (contains the main())
+
+--make 2 books
+--set fields with the getters and setters
+--print info with printDetails()
+
+Book1.java
+
+--private fields title (String), cost (double, pages (int)
+--include no constructors
+--have getters and setters for three fields
+--printDetails() method
+
+
+**************************************************************
+
+
+TestBook2.java
+
+--make 2 books using your default constructor
+--print details
+--change fields with the getters and setters
+--print info again with printDetails()
+
+Book2.java
+
+--private fields title (String), cost (double, pages (int)
+--simple default constructor that explicitly set
+  values of the three fields to some generic values
+--have getters and setters for three fields
+--printDetails() method
+
+
+**************************************************************
+
+
+TestBook3.java
+
+--make 2 books using constructor that takes three arguments
+--print details
+--change fields with the getters and setters
+--print info again with printDetails()
+
+Book3.java
+
+--private fields title (String), cost (double, pages (int)
+--simple default constructor that explicitly set
+  values of the three fields to some generic values
+--overloaded constructor that takes values for title, cost and pages
+--have getters and setters for three fields
+--printDetails() method
+
+

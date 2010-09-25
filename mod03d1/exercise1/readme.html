@@ -1,0 +1,91 @@
+<HTML>
+
+<HEAD>
+   <TITLE>SL275: Module3: Exercise #1: Investigate Reference Assignment</TITLE>
+</HEAD>
+
+<BODY  BGCOLOR=white>
+
+
+<CENTER>
+<H2>SL275: Module3: Identifiers, Keywords, and Types</H2>
+<H3>Exercise #1: Investigate Reference Assignment</H3>
+<H3>(Level 2)</H3>
+</CENTER>
+
+
+<H3>Objective</H3>
+
+<P>
+In this exercise you will investigate Java reference variables;
+object creation and reference variable assignment.
+</P>
+
+
+<H3>Directions</H3>
+
+<P>
+Using the <TT>MyPoint</TT> class, which has been supplied for you,
+create a <TT>TestMyPoint</TT> program that does the following:
+</P>
+
+<P>
+
+<OL><TT></TT>
+
+  <LI>Declare two variables of type <TT>MyPoint</TT> called: <TT>start</TT> and <TT>end</TT>.
+      Assign both of these variables a new <TT>MyPoint</TT> object.
+      <P>
+
+  <LI>Set the <TT>x</TT> and <TT>y</TT> values of <TT>start</TT> to <TT>10</TT>.
+      Set the <TT>x</TT> value of <TT>end</TT> to 20 and the <TT>y</TT> value
+      to <TT>30</TT>.
+      <P>
+
+  <LI>Print out both point variables.  Use code similar to:<BR>
+      <TT>System.out.println("Start point is " + start);</TT>
+      <P>
+
+  <LI>Compile and run <TT>TestMyPoint</TT>.
+      <P>
+
+  <LI>Declare a new variable of type <TT>MyPoint</TT> and call it <TT>stray</TT>.
+     <BR>
+      Assign <TT>stray</TT> the reference value of the existing variable <TT>end</TT>.
+      <P>
+
+  <LI>Print out <TT>stray</TT> and <TT>end</TT>.
+      <P>
+
+  <LI>Assign new values to the x and y members of the variable <TT>stray</TT>.
+     <BR>
+      Print out <TT>stray</TT>, <TT>end</TT> and <TT>start</TT>.
+      <P>
+
+  <LI>Compile and run <TT>TestMyPoint</TT>.
+      The values reported by <TT>end</TT> reflect the change made in <TT>stray</TT>,
+      indicating that both variables refer to the same <TT>MyPoint</TT> object.
+      However, <TT>start</TT> has not changed which indicates that it is
+      independent of the other two variables.
+      <P>
+      The output should look like this:
+      <P>
+<PRE>
+Start point is [10,10]
+End point is [20,30]
+
+Stray point is [20,30]
+End point is [20,30]
+
+Stray point is [47,30]
+End point is [47,30]
+Start point is [10,10]
+</PRE>
+
+</OL>
+
+</P>
+
+</BODY>
+
+</HTML>
