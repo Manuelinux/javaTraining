@@ -1,0 +1,54 @@
+<HTML>
+
+<HEAD>
+   <TITLE>SL275: Module4: Exercise #3: Use Nested Loops</TITLE>
+</HEAD>
+
+<BODY  BGCOLOR=white>
+
+
+<CENTER>
+<H2>SL275: Module4: Expressions and Control Flow</H2>
+<H3>Exercise #3: Use Nested Loops</H3>
+<H3>(Level 3)</H3>
+</CENTER>
+
+
+<H3>Objective</H3>
+
+<P>
+In this exercise you will use nested loops to implement a string search operation.
+</P>
+
+
+<H3>Directions</H3>
+<P>
+Write a method that searchs for a specific string within another string;
+the method must return true if the former exists in the latter string.
+For example: <TT>isSubString("cat", "The cat in the hat.")</TT> is <TT>true</TT>,
+ but <TT>isSubString("bat", "The cat in the hat.")</TT> is <TT>false</TT>.
+Also, verify that the boundry conditions are also met.
+</P>
+
+<P>
+Also, verify that the boundry conditions are also met:
+<UL>
+  <LI><TT>isSubString("The", "The cat in the hat.")</TT> is <TT>true</TT>
+  <LI><TT>isSubString("hat.", "The cat in the hat.")</TT> is <TT>true</TT>
+</UL>
+</P>
+
+<P>
+<FONT COLOR=blue>
+Hint - Use the <TT>charAt(int index)</TT> method in the <TT>String</TT> class
+to retrieve a specific character from a string; the index starts with zero.
+For example. <TT>"cat".charAt(0)</TT> is <TT>`c'</TT>, <TT>"cat".charAt(1)</TT>
+ is <TT>`a'</TT>, and <TT>"cat".charAt(2)</TT> is <TT>`t'</TT>.
+ The <TT>length</TT> method returns the number of characters in the string;
+ e.g. <TT>"cat".length()</TT> is <TT>3</TT>.
+</FONT>
+</P>
+
+</BODY>
+
+</HTML>

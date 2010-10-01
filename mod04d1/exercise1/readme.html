@@ -1,0 +1,88 @@
+<HTML>
+
+<HEAD>
+ <TITLE>SL275: Module4: Exercise #1: Use Loops and Branching Statements</TITLE>
+</HEAD>
+
+<BODY  BGCOLOR=white>
+
+
+<CENTER>
+<H2>SL275: Module4: Expressions and Control Flow</H2>
+<H3>Exercise #1: Use Loops and Branching Statements</H3>
+<H3>(Level 1)</H3>
+</CENTER>
+
+
+<H3>Objective</H3>
+
+<P>
+In this exercise you will use a simple integer loop and branching
+statements to play a fictitious game of "foo bar baz".
+</P>
+
+
+<H3>Directions</H3>
+
+<P>
+Create an application that loops from 1 to 50 and prints out each value
+on a separate line, except print out "foo" for every multiple of 3,
+"bar" for every multiple of 5, and "baz" for every multiple of 7.
+</P>
+<P>
+For example:
+<PRE>
+1
+2
+3 foo
+4
+5 bar
+6 foo
+7 baz
+8
+9 foo
+10 bar
+11
+12 foo
+13
+14 baz
+15 foo bar
+16
+</PRE>
+etc...
+<P>
+
+<P>
+<OL>
+
+  <LI>Create a Java class called <TT>FooBarBaz</TT> with a single <TT>main</TT>
+      method.  In this method create a <TT>for</TT> loop statement with an
+      iteration variable called <TT>number</TT>.
+     <P>
+
+  <LI>Within the <TT>for</TT> loop, print out the <TT>number</TT> using the
+      <TT>System.out.print</TT> method. This method, unlike its <TT>println</TT>
+      cousin, does not print a newline character.
+     <P>
+
+  <LI>Within the <TT>for</TT> loop, use an <TT>if</TT> statement to determine
+      whether or not a "foo" should be printed for this number. If yes, then
+      use the <TT>print</TT> method to print the string "foo". Do the same
+      thing for the "bar" and "baz" cases.
+      <FONT COLOR=blue>
+        Hint -- The % operator calculates an integer remainder.
+      </FONT>
+     <P>
+
+  <LI>Finally, also within the <TT>for</TT> loop, print a newline character
+      using the <TT>System.out.println()</TT> method.  This will close the
+      line for this iteration.
+     <P>
+
+</OL>
+</P>
+
+<TT></TT>
+</BODY>
+
+</HTML>
