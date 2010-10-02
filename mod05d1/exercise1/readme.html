@@ -1,0 +1,112 @@
+<HTML>
+
+<HEAD>
+   <TITLE>SL275: Module5: Exercise #1: Manipulate Arrays</TITLE>
+</HEAD>
+
+<BODY  BGCOLOR=white>
+
+
+<CENTER>
+<H2>SL275: Module5: Arrays</H2>
+<H3>Exercise #1: Manipulate Arrays</H3>
+<H3>(level 1)</H3>
+</CENTER>
+
+
+<H3>Objective</H3>
+
+<P>
+In this exercise you will have hands-on experience in declaring,
+creating, and manipulating one- and two-dimensional arrays of
+primitive types.
+</P>
+
+
+<H3>Directions</H3>
+
+<P>
+<OL>
+
+<H4>Using Simple Arrays</H4>
+
+  <LI>Create an application class called <TT>TestArrays</TT>.
+      In the <TT>main()</TT> method, declare two variables called
+      <TT>array1</TT> and <TT>array2</TT>.
+      They should be of type <TT>int[]</TT> (array of <TT>int</TT>).
+      <P>
+
+  <LI>Using the curly-brace notation <TT>{}</TT>,
+      initialize <TT>array1</TT> to the first eight prime numbers:
+      2, 3, 5, 7, 11, 13, 17, and 19.
+      <P>
+
+  <LI>Display the contents of <TT>array1</TT>. You may want to use
+      the <TT>printArray</TT> method at the bottom of this page to
+      display these integer arrays in a nice fashion.
+      Compile <TT>TestArrays</TT> and run it.
+      <P>
+
+  <LI>Assign the <TT>array2</TT> variable equal to the <TT>array1</TT>.
+      Modify the even indexed element in <TT>array2</TT> to be equal to
+      the index value (for example, <TT>array2[0] = 0;</TT> and <TT>array2[2] = 2;</TT> etc).
+      Print out <TT>array1</TT>.
+      Compile <TT>TestArrays</TT> and run it. What has happened to <TT>array1</TT>?
+      <P>
+
+<H4>Using Multi-Dimensional Arrays</H4>
+
+  <LI>Declare a variable called <TT>matrix</TT> with the type of
+      <TT>int[][]</TT> (an array of arrays of <TT>int</TT>).
+     <BR>
+      Intiailize the <TT>matrix</TT> to an array of five arrays.
+      <P>
+
+  <LI>Populate each of the inner arrays in the following manner: Loop through
+      the <TT>matrix</TT> from zero to its length; let's say that this index
+      is <TT>i</TT>.  On each iteration assign <TT>matrix[i]</TT> to a new
+      array of integers the size of which is <TT>i</TT>.
+     <BR>
+      Then loop over each
+      element in that array (of <TT>int</TT>s), with the index variable <TT>j</TT>.
+      On each inner iteration assign <TT>matrix[i][j]</TT> to the value of
+      <TT>i * j</TT>.
+      <P>
+
+  <LI>Print the <TT>matrix</TT> by iterating over the outer array and printing
+      each inner array on a separate line.
+      Compile the <TT>TestArrays</TT> class and run it.  You should see an
+      output similar to this:
+<PRE>
+matrix[0] is <>
+matrix[1] is <0>
+matrix[2] is <0, 2>
+matrix[3] is <0, 3, 6>
+matrix[4] is <0, 4, 8, 12>
+</PRE>
+      <P>
+
+</OL>
+
+</P>
+
+<H3>The <TT>printArray</TT> Support Method</H3>
+
+<PRE>
+  public static void printArray(int[] array) {
+    System.out.print('<');
+    for ( int i = 0; i < array.length; i++ ) {
+      // print an element
+      System.out.print(array[i]);
+      // print a comma delimiter if not the last element
+      if ( (i + 1) < array.length ) {
+	System.out.print(", ");
+      }
+    }
+    System.out.print('>');
+  }
+</PRE>
+
+</BODY>
+
+</HTML>
