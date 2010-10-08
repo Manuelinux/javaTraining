@@ -1,0 +1,166 @@
+<HTML>
+
+<HEAD>
+   <TITLE>SL275: Module6: Alternate Exercise #1: Create Subclasses of Bank Accounts</TITLE>
+</HEAD>
+
+<BODY  BGCOLOR=white>
+
+
+<CENTER>
+<H2>SL275: Module6: Inheritance</H2>
+<H3>Alternate Exercise #1: Create Subclasses of Bank Accounts</H3>
+<H3>(Level 3)</H3>
+</CENTER>
+
+
+<H3>Objective</H3>
+
+<P>
+In this exercise you will create two subclasses of the <TT>Account</TT> class
+in the banking project: <TT>SavingsAccount</TT> and <TT>CheckingAccount</TT>.
+</P>
+
+<P>
+This is an alternate version of <A HREF="../exercise1/readme.html">Exercise #1</A>.
+It incorporate a more complex model of the overdraft protection mechanism.
+It uses the customer's savings account to perform the overdraft protection.
+</P>
+
+<H3>Directions</H3>
+
+<P>
+Start by changing your working directory to <TT>SL275/mod06/alternate1</TT> on your computer.
+</P>
+
+<H4>Implementing the Account Subclasses</H4>
+
+<CENTER> <IMG SRC="UML.gif" BORDER=0> </CENTER>
+
+<P>
+To the <TT>banking</TT> package, you will add the <TT>SavingsAccount</TT>
+and <TT>CheckingAccount</TT> subclasses as modeled by the UML diagram above.
+</P>
+
+<P>
+
+<OL><TT></TT>
+
+  <LI>Create the <TT>banking</TT> directory.  Copy the previous Banking project
+      files (from <TT>SL275/mod05/exercise2</TT>) in this package directory.
+      <P>
+
+  <LI>Implement the <TT>SavingsAccount</TT> class as modeled in the above
+     UML diagram.  
+     <P>
+
+  <LI>The <TT>SavingsAccount</TT> class must extend the <TT>Account</TT> class.
+     
+     <P>
+
+  <LI>It must include an <TT>interestRate</TT> attribute with type <TT>double</TT>.
+     
+     <P>
+
+  <LI>It must include a public constructor that takes two parameters:
+     <TT>balance</TT> and <TT>interest_rate</TT>.  This constructor must
+     pass the <TT>balance</TT> parameter to the parent constructor by calling
+     <TT>super(balance)</TT>.
+     <P>
+
+  <LI>Implement the <TT>CheckingAccount</TT> class as modeled in the above
+     UML diagram.  
+     <P>
+
+  <LI>The <TT>CheckingAccount</TT> class must extend the <TT>Account</TT> class.
+     
+     <P>
+
+  <LI>It has no additional data attributes, but an association attribute,
+      called <TT>protectedBy</TT> must be included with the type <TT>SavingsAccount</TT>; the default value must be <TT>null</TT>.
+      <P>
+
+  <LI>It must include one public constructor that takes one parameter:
+     <TT>balance</TT>.  This constructor must
+     pass the <TT>balance</TT> parameter to the parent constructor by calling
+     <TT>super(balance)</TT>.
+     <P>
+
+  <LI>It must include another public constructor that takes two parameters:
+     <TT>balance</TT> and <TT>protect</TT>.  This constructor must
+     pass the <TT>balance</TT> parameter to the parent constructor by calling
+     <TT>super(balance)</TT>.
+     <P>
+
+  <LI>The <TT>CheckingAccount</TT> class must override the <TT>withdraw</TT>
+      method.  It must it perform the following check: if the current balance
+      is adequate to cover the <TT>amount</TT> to withdraw, then proceed as
+      usual. If not <EM>and if there is overdraft protection</EM>, then
+      attempt to cover the difference (<TT>balance</TT> - <TT>amount</TT>)
+      by the savings account.  If the latter transaction fails, then the
+      whole transaction must fail with the checking balance unaffected.
+      <P>
+
+</OL>
+
+
+<H4>Modifying Customer to Hold Two Accounts</H4>
+
+<CENTER> <IMG SRC="UML_Customer.gif" BORDER=0> </CENTER>
+
+<P>
+Modify the <TT>Customer</TT> class to hold two bank accounts: one for
+savings and one for checking; both are optional.
+</P>
+<TT></TT>
+<P>
+
+<OL>
+
+  <LI>Previously, the <TT>Customer</TT> class contained an association attribute
+      called <TT>account</TT> to hold an <TT>Account</TT> object.  Rewrite this
+      class to contain two assocation attributes: <TT>savingsAccount</TT> and
+      <TT>checkingAccount</TT> with default values of <TT>null</TT>.
+      <P>
+
+  <LI>Include two getter methods: <TT>getSavings</TT> and <TT>getChecking</TT>,
+      which returns the savings and checking accounts, respectively.
+      <P>
+
+  <LI>Include two setter methods: <TT>setSavings</TT> and <TT>setChecking</TT>,
+      which set the savings and checking account associations, respectively.
+      <P>
+
+</OL>
+
+</P>
+
+
+<H4>Test the Code:</H4>
+
+<P>
+In the main <TT>exercise1</TT> directory, compile and execute the
+<TT>TestBanking</TT> program.  The output should be:
+
+<PRE>
+Customer [Simms, Jane] has a checking balance of 200.0 and a savings balance of 500.0
+Checking Acct [Simms, Jane] : withdraw 150.00 succeeds? true
+Checking Acct [Simms, Jane] : deposit 22.50 succeeds? true
+Checking Acct [Simms, Jane] : withdraw 147.62 succeeds? true
+Customer [Simms, Jane] has a checking balance of 0.0 and a savings balance of 424.88
+
+Customer [Bryant, Owen] has a checking balance of 200.0
+Checking Acct [Bryant, Owen] : withdraw 100.00 succeeds? true
+Checking Acct [Bryant, Owen] : deposit 25.00 succeeds? true
+Checking Acct [Bryant, Owen] : withdraw 175.00 succeeds? false
+Customer [Bryant, Owen] has a checking balance of 125.0
+</PRE>
+
+Notice that Jane's checking account is protected by her savings account
+in the last transaction; whereas, Owen has no overdraft protection, so
+the last transaction on his account fails and the balance is not affected.
+</P>
+
+</BODY>
+
+</HTML>
